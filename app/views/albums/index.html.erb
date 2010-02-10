@@ -1,0 +1,13 @@
+
+<%= "ALL ALBUMS" %>
+<p><%= "This is album Index view"%></p>
+
+<% @albums.each do |album| %>
+  <p><%= link_to album.name, album %></p>
+<% end %>
+
+<%= link_to "new album", new_album_path %>
+
+<p><%= "These 2 lines and all do the same thing"%></p>
+<%= link_to 'Show', @album %>|
+<%= link_to 'Back', albums_path %>

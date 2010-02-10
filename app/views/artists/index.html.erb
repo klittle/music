@@ -1,0 +1,14 @@
+<p><%= "Artist Listing" %></p>
+<p><%= "This is the Index View" %></p>
+
+
+<% @artists.each do |artist| %>
+
+	<p><%= link_to artist.name, artist %></p>
+	<% end %>
+	
+
+
+
+
+<%= link_to "New artist", new_artist_path %>
