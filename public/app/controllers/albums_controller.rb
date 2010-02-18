@@ -1,20 +1,7 @@
 class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
-    @select_type = Album.find(:all, :order => :name)
-    @order = params[:order]
-    
-    
-    
   end
-  
-  def sort_albums
-    Type.find(params[:id])
-    flash[:notice] = 'Found id'
-  end
-    
-  
-  
   
   def index
     @albums = Album.find(:all)

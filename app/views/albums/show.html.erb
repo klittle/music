@@ -1,4 +1,23 @@
-<h1><%= @album.name %></h1>
+
+	
+
+	<%#= f.label :category %><br>
+		<% form_for :Album, :html => {:method => :get} do |form| %>
+		
+		<div>
+		<%= form.label :Sort_by, "Sort by:" %>
+		<%= form.select :Sort_by, Album::Music_Types %>
+
+
+		<div>
+		<p><%= submit_tag 'Submit!' %></p>
+	<% end %>
+	
+
+
+
+
+
 <p><%= link_to "edit", edit_album_path(@album) %></p>
 
 <p>

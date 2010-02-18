@@ -1,19 +1,17 @@
-<h1>Editing <%= @artist.name %>  </h1>
+<h1>Editing artist</h1>
 
 <% form_for @artist, :html => {:multipart => true} do |f| %>
 	<p>
 		<%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.string :name %>
 	</p>
 		
   <%= f.error_messages %>
 
   <p>
-    <%= f.submit 'Save' %>
+    <%= f.submit 'Update' %>
   </p>
 <% end %>
 
 
 <%= link_to "all", artists_path %>
-
-

@@ -7,4 +7,12 @@ class Album < ActiveRecord::Base
   def inspect
     "Album(#{name})"
   end
+  
+  Music_Types = [
+    #Display                  stored in db
+    ["Albums-A-Z",            "AlbumsA"],
+    ["Albums-Z-A",            "AlbumsZ"],    
+    ["Release Date-ASC",      "ReleaseAsc"],    
+    ["Release Date-DESC",     "ReleaseDesc"], 
+    ]
 end
