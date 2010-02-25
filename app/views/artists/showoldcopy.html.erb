@@ -1,0 +1,25 @@
+
+<p><%= "Show View" %></p>
+
+<%#= f.label :category %>
+	<%# form_tag :Album, :html => {:method => :get} do |form| %>
+	
+	<div>
+	<%#= form.label :Sort_by, "Sort by:" %>
+	<%#= form.select :Sort_by, Album::Music_Types %>
+
+
+	<%= form_tag artists_path(@artist) %>
+	
+	
+		<%= label_tag 'Sort by:' %>
+		<%= text_field_tag  params[:Music_Typesa] %>
+
+		<div>
+		<p><%= submit_tag 'Submit!' %></p>
+	
+
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
+<%= link_to 'Albums', albums_path %>

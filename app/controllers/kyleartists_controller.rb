@@ -2,21 +2,6 @@ class ArtistsController < ApplicationController
   
   def show
     @artist = Artist.find(params[:id])
-    
-
-    @choice_id = params[:choice_id]
-
-    
-    #@albums = @artist.albums.find(:all, :order => @choice_id)
-    #flash[:notice] = @choice_id
-    #@choice_id = Choice_id.create! params[:choice_id]
-    #@choice_id.save
-    flash[:notice] = 'Your wish has been granted'
-
- 
-   
-   
-   
   end
   
   def index
@@ -30,14 +15,6 @@ class ArtistsController < ApplicationController
   def create
     @artist = Artist.create! params[:artist]
     redirect_to @artist
-    
-    @choice_id = params[:choice_id]
-   
-    
-    #@choice = Choice.create! params[:choice]
-    #@choice.save
-    #flash[:notice] = 'Your wish has been granted'
-    #redirect_to Artists.sort_albums
   end
   
   def edit
@@ -56,14 +33,24 @@ class ArtistsController < ApplicationController
     redirect_to artists_path
   end
   
-  def sort_albums
-     choice = params[:choice]
-     artist = params[:artist]
-     album = params[:album]
-    
-     
+  
+  @Music_Typesa = [
+    #Display                          stored in db
+    ["Album Name-Asc",                  "AlbumsA"],
+    ["Album Name-Des",                  "AlbumsZ"],    
+    ["Release Date-Most Recent",      "ReleaseAsc"],    
+    ["Release Date-Oldest",           "ReleaseDesc"], 
+    ]
+
+    def sort_artists
+      @sortchoices = params[:sortchoices]
+      
+      @sort_order =
+      { 'Album Name-Asc' => SQL ASC, 'Album Name-Des' = SQL DES,
+        'Release Date-Most Recent' => Date Order, 'Release Date-Oldest' => Date Des
+        }
+      #@sort_order = sort_order[value]
     end
-        
   
 end
 

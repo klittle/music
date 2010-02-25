@@ -5,12 +5,26 @@
 		<% form_for :Album, :html => {:method => :get} do |form| %>
 		
 		<div>
-		<%= form.label :Sort_by, "Sort by:" %>
-		<%= form.select :Sort_by, Album::Music_Types %>
+		<%#= form.label :Sort_by, "Sort by:" %>
+		<%#= form.select :Sort_by, Album::Music_Types %>
+
 
 
 		<div>
 		<p><%= submit_tag 'Submit!' %></p>
+		
+		
+		
+		<% if @music_types.blank? %>
+		<p>There are no ids</p>
+		<% else %>
+		<ul id=":music_types">
+		<% @music_types.each do |c| %>
+		<li><%= link_to c.title, {:action => 'show', :id => c.id} -%></li>
+		<% end %>
+		</ul>
+		<% end %>
+
 	<% end %>
 	
 
