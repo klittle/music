@@ -1,6 +1,5 @@
 class AlbumsController < ApplicationController
   def show
-    @album = Album.find(params[:id], :order => 'name ACS')
     @select_type = Album.find(:all, :order => :name)
     @order = params[:order]
     
