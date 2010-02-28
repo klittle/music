@@ -1,28 +1,4 @@
-
-<p><%= "Show Album Sort View" %></p>
-
-
-	
-	<div>
-		
-		<table>
-		<tr>
-		<th> Name </th>
-		<th> Date Released </th>
-		</tr>
-		
-		<% @albums_sort.each do |album| %>
-
-		<tr>
-			<td> <%=h album.name %>  </td>
-			<td> <%=h album.created_at %>  </td>
-		</tr>
-		<% end %>
-		<div>
-
-	
-
-
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
-<%= link_to 'Albums', albums_path %>
+<tr>
+  <td>  <%=h showalbumsort.name %> </td>
+  <td>  <%=h showalbumsort.created_at %> </td>
+</tr>

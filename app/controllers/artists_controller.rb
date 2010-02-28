@@ -20,11 +20,9 @@ class ArtistsController < ApplicationController
     
     
     if @choice_id == "name"
-      @albums_sort = @artist.albums.find(:all, :order => 'albums.name DESC')
-      #redirect_to @artist
-      #render :action => "_showalbumsort"}
+       render(:partial => "showalbumsort", :collection => @artist.albums_by_name)
     else
-      flash[:notice] += 'Sorry, Charley'
+      #flash[:notice] += 'Sorry, Charley'
       #format.html { redirect_to (albums) }
     end    
     #@albums_sort = @artist.albums.find(:all, :order => 'albums.name DESC')
@@ -54,8 +52,6 @@ class ArtistsController < ApplicationController
 
     @choice_id = params[:choice_id]
 
-
-    #@choice = Choice.create! params[:choice]
     #@choice.save
     #flash[:notice] = 'Your wish has been granted'
     #redirect_to Artists.sort_albums
@@ -76,30 +72,6 @@ class ArtistsController < ApplicationController
     @artist.destroy
     redirect_to artists_path
   end
-
-  def submit
-    
-     #@artist = Artist.find(params[:id])
-
-    #flash[:notice] = 'In commit method.  @choice_id = '+ @choice_id
-
-
-    #respond_to do |format|
-    #if params[:choice_id] == "name"
-      #@albums_sort = @artist.albums.find(:all, :order => 'albums.name DESC')
-      #format.html { render :action => "_showalbumsort"}
-    #else
-      #format.html { redirect_to (albums) }
-    #end
-  end
-
-  #how do you say at @choice_id = params[name]
-
-  #@albums_sort = @artist.albums.find(:all, :order => 'albums.name DESC')
-
-
-  #then @choice_id = params[date]
-  #@choice_id = @artist.albums.find(:all, :order => 'albums.date DESC')
 
 
 
