@@ -6,11 +6,11 @@ class Artist < ActiveRecord::Base
   end
   
   def albums_by_name
-     @albums.find(:all, :order => 'albums.name DESC')
+     @albums = albums.find(:all, :order => 'name DESC')
   end
   
   def albums_by_date
-     @albums.find(:all, :order => 'albums.created_at DESC')
+     @albums = albums.find(:all, :order => 'albums.created_at DESC')
   end
     
 end

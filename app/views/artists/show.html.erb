@@ -1,6 +1,8 @@
 
 <p><%= "Show View" %></p>
-	
+
+<h2>Albums by: <%=h @artist.name %></h2>
+  
 	<div>
 		
 <label for="choices"><h2>Pick a Way to Sort Albums by: <%=h @artist.name %></h2>
@@ -8,27 +10,28 @@
 
 	<p>
 		<% form_tag artist_path(@artist), :method => :get do%>
-	  <%= select_tag(:choice_id, options_for_select(%w{name date}, 		params[:choice_id]))%>
+	  <%= select_tag (:choice_id, options_for_select(%w{name date}, 		params[:choice_id]))%>
 	<p><%= submit_tag 'Submit' %></p>
 	<% end %>
 	</p>
 	
+</div>
+
 <div>
+
+  <table>
+    <tr>
+      <th> Name </th>
+      <th> Date Released </th>
+    </tr>
+    <%= render :partial => "showalbumsort", :collection => @artist.albums %>
+
+  </table>
+</div>
   
-  <div>
-
-    <table>
-      <tr>
-        <th> Name </th>
-        <th> Date Released </th>
-      </tr>
-      <%= render(:partial => "showalbumsort", :collection => @artist.albums) %>
-
-    </table>
-  </div>
 
   <div>
-    <h2>Sorted  by Name</h2>
+    <h2>Sorted by Name</h2>
 
     <table>
       <tr>

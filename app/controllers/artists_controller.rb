@@ -5,37 +5,40 @@ class ArtistsController < ApplicationController
 
 
     @choice_id = params[:choice_id]
+    
     flash[:notice] = 'In show method'
-    if (nil == @choice_id) then
-      flash[:notice] += '  @choice_id is nil'
-    else
-      flash[:notice] += '  @choice_id = '+ @choice_id
-    end
+    # if (nil == @choice_id) then
+    #   flash[:notice] += '  @choice_id is nil'
+    # else
+    #   flash[:notice] += '  @choice_id = '+ @choice_id
+    # end
+    # 
+    # if (nil == params[:commit]) then
+    #   flash[:notice] += '  commit is nil'
+    # else
+    #   flash[:notice] += '  commit = ' + params[:commit]
+    # end  
+
     
-    if (nil == params[:commit]) then
-      flash[:notice] += '  commit is nil'
-    else
-      flash[:notice] += '  commit = ' + params[:commit]
-    end  
+    # if @choice_id == "name"
+    #         #CHECK ON CORRECT FORMAT OF THIS LINE -- SHOULD IT BE action:  ???      
+    #        render :partial => "showalbumsort", :collection => @artist.albums_by_name
+    #     else @choice_id == "date"
+    #        render :partial => "showalbumsort", :collection => @artist.albums_by_date
+    #     else
+    #       flash[:notice] += 'Sorry, Charley'
+    #       #format.html { redirect_to (albums) }
+    #     end   
     
-    
-    if @choice_id == "name"
-       render(:partial => "showalbumsort", :collection => @artist.albums_by_name)
-    else
-      #flash[:notice] += 'Sorry, Charley'
-      #format.html { redirect_to (albums) }
-    end    
-    #@albums_sort = @artist.albums.find(:all, :order => 'albums.name DESC')
-
-    #if @commit.submit
-    #after submit, you state flash notice & then
-    #pull album data for artists from albums and pt it on the show pagem
-    #or another show page,
-
-
-    #flash[:notice] = 'Your wish has been granted'
-
-    #redirect_to @albums_sort
+    case
+      when @choice_id == "name"
+         render :partial => "showalbumsort", :collection => @artist.albums_by_name
+      when @choice_id == "date"
+         render :partial => "showalbumsort", :collection => @artist.albums_by_date
+      else
+        flash[:notice] += 'Sorry, Charley'
+        #format.html { redirect_to (artist_albums_path)}
+      end
   end
 
   def index
