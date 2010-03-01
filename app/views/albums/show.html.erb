@@ -4,14 +4,7 @@
 	<%#= f.label :category %><br>
 		<% form_for :Album, :html => {:method => :get} do |form| %>
 		
-		<div>
-		<%#= form.label :Sort_by, "Sort by:" %>
-		<%#= form.select :Sort_by, Album::Music_Types %>
 
-
-
-		<div>
-		<p><%= submit_tag 'Submit!' %></p>
 		
 		
 		
@@ -32,7 +25,7 @@
 
 
 
-<p><%= link_to "edit", edit_album_path(@album) %></p>
+<%= link_to 'edit', edit_album(@album) %>
 
 <p>
   <%#= image_tag @album.photo.url %>

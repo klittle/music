@@ -15,9 +15,6 @@
 	<% end %>
 	</p>
 	
-</div>
-
-<div>
 
   <table>
     <tr>
@@ -27,34 +24,10 @@
     <%= render :partial => "showalbumsort", :collection => @artist.albums %>
 
   </table>
+
 </div>
   
 
-  <div>
-    <h2>Sorted by Name</h2>
-
-    <table>
-      <tr>
-        <th> Name </th>
-        <th> Date Released </th>
-      </tr>
-      <%= render(:partial => "showalbumsort", :collection => @artist.albums_by_name) %>
-
-    </table>
-  </div>	
-
-  <div>
-    <h2>Sorted  by Date</h2>
-
-    <table>
-      <tr>
-        <th> Name </th>
-        <th> Date Released </th>
-      </tr>
-      <%= render(:partial => "showalbumsort", :collection => @artist.albums_by_date) %>
-
-    </table>
-  </div>
 		
 
 		

@@ -3,13 +3,26 @@
   <td>  <%=h showalbumsort.created_at %> </td>
 </tr> -->
 
+</div>
+<body>
+  <div id="main">
+    <% if flash[:notice] -%>
+  <div id="notice"><%= flash[:notice] %></div>
+  <% end -%>
+<div>
+
 
 
   <table>
-      <th> Name </th>
-      <th> Date Released </th>
+      <!-- <th> Name </th>
+      <th> Date Released </th> -->
     <tr>
       <td> <%=h showalbumsort.name %> </td>
       <td> <%=h showalbumsort.created_at %></td>
     </tr>
   </table>
+  
+  
+  
+  <%= link_to 'Back', artists_path %>
+  <%= link_to 'Albums', albums_path %>

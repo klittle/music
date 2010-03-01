@@ -6,7 +6,7 @@ class ArtistsController < ApplicationController
 
     @choice_id = params[:choice_id]
     
-    flash[:notice] = 'In show method'
+    #flash[:notice] = 'In show method'
     # if (nil == @choice_id) then
     #   flash[:notice] += '  @choice_id is nil'
     # else
@@ -32,12 +32,14 @@ class ArtistsController < ApplicationController
     
     case
       when @choice_id == "name"
+         flash[:notice] = "Albums sorted by name-WHY DOES THIS REPEAT"
          render :partial => "showalbumsort", :collection => @artist.albums_by_name
       when @choice_id == "date"
+         flash[:notice] = "Albums sorted by date"
          render :partial => "showalbumsort", :collection => @artist.albums_by_date
       else
-        flash[:notice] += 'Sorry, Charley'
-        #format.html { redirect_to (artist_albums_path)}
+        #flash[:notice] += 'Sorry, Charley'
+        #redirect_to albums
       end
   end
 
